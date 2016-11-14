@@ -11,9 +11,9 @@
 	<meta property="og:url" content="http://devfest.gdgbaguio.org/" />
 	<meta property="og:site_name" content="GDG DevFest Baguio 2016" />
 	<meta property="og:image" content="includes/images/og.jpg" />
-	<meta property="og:description" content="The biggest Google tech conference in Baguio City. All about Android, Web and Cloud. NOVEMBER 5, 2016" />
+	<meta name="twitter:site" content="@gdgphilippines" />
 	<link rel="shortcut icon" href="favicon.ico">
-	<meta name="theme-color" content="#e2695e">
+	<meta name="theme-color" content="#4DD0E1">
 	<link rel="stylesheet" href="includes/styles/m.css">
 	<link rel="stylesheet" href="includes/styles/style.css">
 	<script src="includes/scripts/autosize.js"></script>
@@ -21,35 +21,31 @@
 	<title>GDG DevFest Baguio City 2016</title>
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<div class="bg"></div>
-			<div class="black-filter"></div>
-			<div class="wrapper">
-				<div class="col-6 t-col-12">
-				</div>
-			</div>
-		</div>
+	<div class="container" style="padding-top: 60px">
 		<div class="view">
 		</div>
-		<div class="content footer">
+		<div class="content footer dense">
 			<div class="wrapper">
 				<div class="columns">
 					<div class="col-6 t-col-12 t-center">&copy; 2016 GDG DevFest Baguio 2016 | #DevFestBaguio #DevFest16</div>
-					<div class="col-6 t-col-12 right t-center"><a href="http://gdgbaguio.org/" target="_blank"><img src="includes/images/gdgbaguio.png" height="20px"></a></div>
+					<div class="col-6 t-col-12 right t-center"><a href="http://gdgbaguio.org/" target="_blank"><img src="../includes/images/gdgbaguio.png" height="20px"></a></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="action-bar">
+	<div class="action-bar color">
 		<a class="menu"><i class="material-icons">menu</i></a>
-		<a href="#" data-page="home"><img src="includes/images/logowhite.png" class="logo"></a>
+		<a href="#" data-page="home"><img src="../includes/images/logowhite.png" class="logo"></a>
 		<ul class="nav">
-			<li><a data-page="home" href="#">Home</a></li>
-			<li><a data-page="schedule" href="#schedule">Schedule</a></li>
-			<li><a data-page="speakers" href="#speakers">Speakers</a></li>
-			<li><a data-page="highlights" href="#highlights">Highlights</a></li>
-			<!-- <li><a data-page="register" href="#register">Register</a></li> -->
+			<li style="display: none"><a onclick="App.showUserOptions()" class="user"><img src="" alt="">
+				</a>
+				<div class="more-options">
+					<div class="wrapper">
+						<img src=""><span></span><a href class="signout flat_button">Sign out</a>
+					</div>
+				</div>
+					</li>
+			<li><a class="signin">Sign in with Google</a></li>
 		</ul>
 	</div>
 	<div class="black-trans"></div>
@@ -73,33 +69,43 @@
 	<div class="dialog-box"><div class="wrapper"></div></div>
 	<div class="slider">
 		<div class="cover">
-			<img src="includes/images/logo.png" width="150px"><br><br><br><span>November 5, 2016<br>Baguio City, Baguio</span>
+			<a class="back"><i class="material-icons">arrow_back</i></a><img src="includes/images/logo.png" width="150px"><br><br><br><a class="flat_button signin white-text">Sign in with Google</a>
+			<div class="user"><img src=""><span></span><small>juvar.abrera2@gmail.com</small></div></span>
 		</div>
-		<ul class="nav">
-			<li><a data-page="home" href="#">Home</a></li>
-			<li><a data-page="schedule" href="#schedule">Schedule</a></li>
-			<li><a data-page="speakers" href="#speakers">Speakers</a></li>
-			<li><a data-page="highlights" href="#highlights">Highlights</a></li>
-			<!-- <li><a data-page="register" href="#register">Register</a></li> -->
+		<ul class="nav" style="display: none">
+			<li><a data-page="home" href="#home"><i class="material-icons">dashboard</i>Dashboard</a></li>
+			<li><a data-page="leaderboard" href="#leaderboard"><i class="material-icons">sort</i>Leaderboard</a></li>
+			<li><a class="signout"><i class="material-icons">power_settings_new</i>Sign out</a></li>
 		</ul>
 	</div>
 	<script src="includes/scripts/autosize.js"></script>
 	<script src="includes/scripts/Input.js"></script>
 	<script src="includes/scripts/Data.js"></script>
 	<script src="includes/scripts/App.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyCG-ZOfU29cTIs2iKLgpo2Vdj4Q9Xp-7jo",
+		authDomain: "gdg-devfest-baguio-2016-e64fb.firebaseapp.com",
+    		databaseURL: "https://gdg-devfest-baguio-2016-e64fb.firebaseio.com",
+	    storageBucket: "",
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
 	<script>
 		App.ready(window.location.hash.substring(1));
 	</script>
-	<!-- Google Analytics -->
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-86502916-2', 'auto');
-	  ga('send', 'pageview');
+  ga('create', 'UA-78413383-3', 'auto');
+  ga('send', 'pageview');
 
-	</script>
+</script>
 </body>
 </html>
